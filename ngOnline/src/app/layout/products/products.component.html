@@ -1,0 +1,119 @@
+<!-- <h1 align="center">{{ title }}</h1> -->
+
+<ul>
+  <li [class.my-class]="mobPart.clsVar" *ngFor="let mobPart of mobParts">
+    <p>
+      Mobile Part ID : <b>{{ mobPart.id }}</b>
+    </p>
+    <div [style.color]="mobPart.prodColor">
+      Mobile Part Name :
+      <b
+        ><i>{{ mobPart.name | uppercase }}</i></b
+      >
+    </div>
+    <div>
+      Description : <q>{{ mobPart.description }}</q>
+    </div>
+
+    <ng-container *ngIf="mobPart.inStock != 0; then stockVal; else outOfStock">
+    </ng-container>
+
+    <ng-template #stockVal>
+      Last <mark>{{ mobPart.inStock }}</mark> Parts Available in stock now...
+    </ng-template>
+
+    <ng-template #outOfStock>
+      Out Of Stock
+    </ng-template>
+    <p>Price : {{ mobPart.price | currency: "INR" }}</p>
+    <p>144 : {{ 144 | sqrt }}</p>
+
+    <div
+      [ngStyle]="{
+        display: mobPart.canPurch === true ? 'inline-block' : 'none'
+      }"
+    >
+      <img
+        src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Green_sphere.svg/2000px-Green_sphere.svg.png"
+        width="16"
+      />
+    </div>
+
+    <p [ngSwitch]="mobPart.country">
+      Country :
+      <img
+        *ngSwitchCase="'Australia'"
+        src="https://upload.wikimedia.org/wikipedia/en/thumb/b/b9/Flag_of_Australia.svg/23px-Flag_of_Australia.svg.png"
+        width="24"
+      />
+      <img
+        *ngSwitchCase="'Germany'"
+        src="https://upload.wikimedia.org/wikipedia/en/thumb/b/ba/Flag_of_Germany.svg/23px-Flag_of_Germany.svg.png"
+        width="24"
+      />
+      <img
+        *ngSwitchCase="'India'"
+        src="https://upload.wikimedia.org/wikipedia/en/thumb/4/41/Flag_of_India.svg/23px-Flag_of_India.svg.png"
+        width="24"
+      />
+      <img
+        *ngSwitchDefault
+        src="https://cdn2.iconfinder.com/data/icons/world-flag-icons/256/Flag_of_Japan.png"
+        width="24"
+      />
+    </p>
+  </li>
+</ul>
+
+<!-- <div class="container">
+  <div class="section">
+    <div class="row">
+      <div class="col s12 m4">
+        <div class="icon-block">
+          <h2 class="center brown-text">
+            <i class="material-icons">flash_on</i>
+          </h2>
+          <h5 class="center">Speeds up development</h5>
+
+          <p class="light">
+            We did most of the heavy lifting for you to provide a default
+            stylings that incorporate our custom components. Additionally, we
+            refined animations and transitions to provide a smoother experience
+            for developers.
+          </p>
+        </div>
+      </div>
+
+      <div class="col s12 m4">
+        <div class="icon-block">
+          <h2 class="center brown-text"><i class="material-icons">group</i></h2>
+          <h5 class="center">User Experience Focused</h5>
+
+          <p class="light">
+            By utilizing elements and principles of Material Design, we were
+            able to create a framework that incorporates components and
+            animations that provide more feedback to users. Additionally, a
+            single underlying responsive system across all platforms allow for a
+            more unified user experience.
+          </p>
+        </div>
+      </div>
+
+      <div class="col s12 m4">
+        <div class="icon-block">
+          <h2 class="center brown-text">
+            <i class="material-icons">settings</i>
+          </h2>
+          <h5 class="center">Easy to work with</h5>
+
+          <p class="light">
+            We have provided detailed documentation as well as specific code
+            examples to help new users get started. We are also always open to
+            feedback and can answer any questions a user may have about
+            Materialize.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->
