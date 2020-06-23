@@ -8,4 +8,6 @@ export class MobParts {
   clsVar: boolean;
   country: string;
   price: number;
+  quantity: number;
+  prodImg: string;
 }

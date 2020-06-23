@@ -45,4 +45,12 @@ export class MobPartsComponent implements OnInit {
     }
     return tot;
   }
+
+  upQuantity(mobPart) {
+    if (mobPart.quantity < mobPart.inStock) mobPart.quantity++;
+  }
+
+  downQuantity(mobPart) {
+    if (mobPart.quantity != 0) mobPart.quantity--;
+  }
 }

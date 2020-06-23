@@ -1,32 +1,52 @@
-<div class="row">
-  <div class="col s12 m6">
-    <div class="card blue-grey darken-1">
-      <div class="card-content white-text">
-        <span class="card-title">BOOKS</span>
-        <p>
-          I am a very simple card. I am good at containing small bits of
-          information. I am convenient because I require little markup to use
-          effectively.
-        </p>
-      </div>
-      <div class="card-action">
-        <a href="#">This is a link</a>
+<h4>Books Section..</h4>
+<h6>Total Books Available {{ total }}</h6>
+
+<ul>
+  <li *ngFor="let bookDetail of bookDetails">
+    <div class="col s12 m3">
+      <div class="card">
+        <div class="card-image">
+          <img
+            src="../../../assets/img/{{ bookDetail.bookImg }}"
+            alt="Book image"
+          />
+        </div>
+        <div class="card-content">
+          <p>{{ bookDetail.name }}</p>
+          <p>{{ bookDetail.price | currency: "INR" }}</p>
+          <p>Available : {{ bookDetail.availibilty }}</p>
+
+          <input
+            type="text"
+            [(ngModel)]="bookDetail.availibilty"
+            [value]="bookDetail.quantity"
+            (input)="catchVal($event.target.value, $event)"
+          />
+          {{ bookDetail.availibilty }}
+
+          <!-- <a class="waves-effect waves-light btn modal-trigger" href="#modal1"
+            >Buy</a
+          > -->
+          <!-- <div id="modal1" class="modal">
+            <div class="modal-content">
+              <h6>No. of Books to Buy</h6>
+             
+            </div>
+
+            <div class="modal-footer">
+              <a href="#!" class="modal-close waves-effect waves-green btn-flat"
+                >Agree</a
+              >
+            </div>
+          </div> -->
+        </div>
       </div>
     </div>
-  </div>
-  <div class="col s12 m6">
-    <div class="card blue-grey darken-1">
-      <div class="card-content white-text">
-        <span class="card-title">BOOKS</span>
-        <p>
-          I am a very simple card. I am good at containing small bits of
-          information. I am convenient because I require little markup to use
-          effectively.
-        </p>
-      </div>
-      <div class="card-action">
-        <a href="#">This is a link</a>
-      </div>
-    </div>
-  </div>
-</div>
+  </li>
+  <a class="waves-effect waves-light btn">
+    <i class="material-icons">chevron_left</i>
+  </a>
+  <a class="waves-effect waves-light btn right">
+    <i class="material-icons">chevron_right</i>
+  </a>
+</ul>

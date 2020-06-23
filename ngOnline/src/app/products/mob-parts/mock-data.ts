@@ -11,6 +11,8 @@ export const MOBPARTS: MobParts[] = [
     clsVar: true,
     country: 'Australia',
     price: 1200,
+    quantity: 0,
+    prodImg: 'mob1.png',
   },
   {
     id: 1002,
@@ -22,6 +24,8 @@ export const MOBPARTS: MobParts[] = [
     clsVar: true,
     country: 'India',
     price: 1200,
+    quantity: 0,
+    prodImg: 'mob2.png',
   },
   {
     id: 1003,
@@ -33,5 +37,7 @@ export const MOBPARTS: MobParts[] = [
     clsVar: true,
     country: 'Germany',
     price: 1200,
+    quantity: 0,
+    prodImg: 'mob3.png',
   },
 ];

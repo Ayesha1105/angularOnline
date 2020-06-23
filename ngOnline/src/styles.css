@@ -1,1 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
+/* @import */
+
+.clsName {
+  background: linear-gradient(
+    to right,
+    #e7e9bb,
+    #6f72a5
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}

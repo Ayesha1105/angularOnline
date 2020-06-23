@@ -1,7 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppComponent } from './app.component';
+import { FormsModule } from '@angular/forms';
+import { RouterModule, Routes } from '@angular/router';
+
 import { SqrtPipe } from './pipes/sqrt.pipe';
 import { BannerTwoComponent } from './layout/banner-two/banner-two.component';
 import { BannerThreeComponent } from './layout/banner-three/banner-three.component';
@@ -14,6 +16,13 @@ import { SimpleStyleDirective } from './directives/simple-style.directive';
 import { MobPartsComponent } from './products/mob-parts/mob-parts.component';
 import { BooksComponent } from './products/books/books.component';
 import { WatchesComponent } from './products/watches/watches.component';
+import { from } from 'rxjs';
+
+const appRoutes: Routes = [
+  { path: 'mobile', component: MobPartsComponent },
+  { path: 'book', component: BooksComponent },
+  { path: 'watch', component: WatchesComponent },
+];
 
 @NgModule({
   declarations: [
@@ -31,7 +40,7 @@ import { WatchesComponent } from './products/watches/watches.component';
     BooksComponent,
     WatchesComponent,
   ],
-  imports: [BrowserModule],
+  imports: [BrowserModule, FormsModule, RouterModule.forRoot(appRoutes)],
   providers: [],
   bootstrap: [AppComponent],
 })
