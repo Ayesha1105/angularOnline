@@ -2,7 +2,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
-import { RouterModule, Routes } from '@angular/router';
 
 import { SqrtPipe } from './pipes/sqrt.pipe';
 import { BannerTwoComponent } from './layout/banner-two/banner-two.component';
@@ -17,12 +16,11 @@ import { MobPartsComponent } from './products/mob-parts/mob-parts.component';
 import { BooksComponent } from './products/books/books.component';
 import { WatchesComponent } from './products/watches/watches.component';
 import { from } from 'rxjs';
-
-const appRoutes: Routes = [
-  { path: 'mobile', component: MobPartsComponent },
-  { path: 'book', component: BooksComponent },
-  { path: 'watch', component: WatchesComponent },
-];
+import { AppRoutingModule } from './modules/app-routing.module';
+import { MotoComponent } from './products/mob-parts/moto/moto.component';
+import { SamsungComponent } from './products/mob-parts/samsung/samsung.component';
+import { PageNotFoundComponent } from './layout/page-not-found/page-not-found.component';
+import { HomeComponent } from './layout/home/home.component';
 
 @NgModule({
   declarations: [
@@ -39,8 +37,12 @@ const appRoutes: Routes = [
     MobPartsComponent,
     BooksComponent,
     WatchesComponent,
+    MotoComponent,
+    SamsungComponent,
+    PageNotFoundComponent,
+    HomeComponent,
   ],
-  imports: [BrowserModule, FormsModule, RouterModule.forRoot(appRoutes)],
+  imports: [BrowserModule, FormsModule, AppRoutingModule],
   providers: [],
   bootstrap: [AppComponent],
 })
