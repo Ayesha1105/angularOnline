@@ -1,3 +1,4 @@
+import { ComService } from './services/com.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
@@ -21,6 +22,11 @@ import { MotoComponent } from './products/mob-parts/moto/moto.component';
 import { SamsungComponent } from './products/mob-parts/samsung/samsung.component';
 import { PageNotFoundComponent } from './layout/page-not-found/page-not-found.component';
 import { HomeComponent } from './layout/home/home.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+// import { MatCheckboxModule } from '@angular/material/checkbox';
+import { AllMaterialModule } from './modules/all-material.module';
+import { AllComponentModule } from './modules/all-component.module';
+import { MobNavComponent } from './products/mob-parts/mob-nav/mob-nav.component';
 
 @NgModule({
   declarations: [
@@ -41,9 +47,18 @@ import { HomeComponent } from './layout/home/home.component';
     SamsungComponent,
     PageNotFoundComponent,
     HomeComponent,
+    MobNavComponent,
   ],
-  imports: [BrowserModule, FormsModule, AppRoutingModule],
-  providers: [],
+  imports: [
+    BrowserModule,
+    FormsModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    // MatCheckboxModule,
+    AllMaterialModule,
+    AllComponentModule,
+  ],
+  providers: [ComService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

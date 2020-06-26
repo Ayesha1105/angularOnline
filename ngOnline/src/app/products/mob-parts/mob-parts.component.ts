@@ -1,3 +1,4 @@
+import { ComService } from './../../services/com.service';
 import { Component, OnInit } from '@angular/core';
 import { MobParts } from '../../models/mob-parts';
 import { MOBPARTS } from './mock-data';
@@ -8,20 +9,18 @@ import { MOBPARTS } from './mock-data';
   styles: [],
 })
 export class MobPartsComponent implements OnInit {
-  ngOnInit(): void {
-    this.mobParts = MOBPARTS;
-    console.log('1 Init Block...');
+  constructor(private comService: ComService) {
+    console.log('2 Constructor Block');
   }
 
-  constructor() {
-    console.log('2 Constructor Block');
+  ngOnInit(): void {
+    console.log('1 Init Block...');
+    this.mobParts = this.comService.getMobParts();
   }
 
   // 8 lifecylehooks
 
   ngOnDestroy(): void {
-    //Called once, before the instance is destroyed.
-    //Add 'implements OnDestroy' to the class.
     this.mobParts = [];
     console.log('3 ngOnDestroy Block...!');
   }

@@ -1,7 +1,11 @@
+import { ProductsComponent } from './../layout/products/products.component';
+import { ContactUsComponent } from './../layout/contact-us/contact-us.component';
+import { MobPartsComponent } from './../products/mob-parts/mob-parts.component';
+import { MobNavComponent } from './../products/mob-parts/mob-nav/mob-nav.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
-import { MobPartsComponent } from '../products/mob-parts/mob-parts.component';
+
 import { BooksComponent } from '../products/books/books.component';
 import { WatchesComponent } from '../products/watches/watches.component';
 import { MotoComponent } from '../products/mob-parts/moto/moto.component';
@@ -12,22 +16,27 @@ import { HomeComponent } from '../layout/home/home.component';
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'home', component: HomeComponent },
+  { path: 'Allproducts', component: ProductsComponent },
+
+  { path: 'book', component: BooksComponent },
+  { path: 'watch', component: WatchesComponent },
+
   {
     path: 'mobile',
-    component: MobPartsComponent,
+    component: MobNavComponent,
     children: [
+      { path: '', component: MobPartsComponent },
       {
         path: 'moto',
         component: MotoComponent,
       },
       {
-        path: 'samsung',
+        path: 'sam',
         component: SamsungComponent,
       },
     ],
   },
-  { path: 'book', component: BooksComponent },
-  { path: 'watch', component: WatchesComponent },
+
   { path: '**', component: PageNotFoundComponent },
 ];
 

@@ -8,7 +8,5 @@ import { Component, OnInit } from '@angular/core';
 export class ProductsComponent implements OnInit {
   constructor() {}
 
-  title = 'Heya! Welcome to Angular';
-
   ngOnInit(): void {}
 }

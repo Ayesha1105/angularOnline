@@ -8,7 +8,7 @@ export const BOOKDETAILS: BookDetails[] = [
     purchase: true,
     price: 200,
     bookImg: 'book1.jpg',
-    availibilty: 0,
+    availibilty: 10,
   },
   {
     id: 2,
@@ -17,7 +17,7 @@ export const BOOKDETAILS: BookDetails[] = [
     purchase: true,
     price: 250,
     bookImg: 'book2.jpg',
-    availibilty: 0,
+    availibilty: 20,
   },
   {
     id: 3,
@@ -26,7 +26,7 @@ export const BOOKDETAILS: BookDetails[] = [
     purchase: true,
     price: 290,
     bookImg: 'book3.jpg',
-    availibilty: 0,
+    availibilty: 50,
   },
   {
     id: 4,
