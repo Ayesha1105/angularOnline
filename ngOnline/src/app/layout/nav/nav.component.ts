@@ -6,6 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styles: [],
 })
 export class NavComponent implements OnInit {
+  isLogin() {
+    if (localStorage.getItem('username') != null) return true;
+    return false;
+  }
+  logout() {
+    localStorage.removeItem('username');
+  }
   constructor() {}
 
   ngOnInit(): void {}

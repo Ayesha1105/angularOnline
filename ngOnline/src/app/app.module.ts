@@ -1,8 +1,10 @@
+import { AuthGuard } from './guards/auth.guard';
 import { ComService } from './services/com.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
 
 import { SqrtPipe } from './pipes/sqrt.pipe';
 import { BannerTwoComponent } from './layout/banner-two/banner-two.component';
@@ -27,6 +29,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AllMaterialModule } from './modules/all-material.module';
 import { AllComponentModule } from './modules/all-component.module';
 import { MobNavComponent } from './products/mob-parts/mob-nav/mob-nav.component';
+import { LoginComponent } from './admin/login/login.component';
+import { DashboardComponent } from './admin/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +52,8 @@ import { MobNavComponent } from './products/mob-parts/mob-nav/mob-nav.component'
     PageNotFoundComponent,
     HomeComponent,
     MobNavComponent,
+    LoginComponent,
+    DashboardComponent,
   ],
   imports: [
     BrowserModule,
@@ -57,8 +63,9 @@ import { MobNavComponent } from './products/mob-parts/mob-nav/mob-nav.component'
     // MatCheckboxModule,
     AllMaterialModule,
     AllComponentModule,
+    HttpModule,
   ],
-  providers: [ComService],
+  providers: [ComService, AuthGuard],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -1,3 +1,6 @@
+import { AuthGuard } from './../guards/auth.guard';
+import { DashboardComponent } from './../admin/dashboard/dashboard.component';
+import { LoginComponent } from './../admin/login/login.component';
 import { ProductsComponent } from './../layout/products/products.component';
 import { ContactUsComponent } from './../layout/contact-us/contact-us.component';
 import { MobPartsComponent } from './../products/mob-parts/mob-parts.component';
@@ -35,6 +38,13 @@ const appRoutes: Routes = [
         component: SamsungComponent,
       },
     ],
+  },
+
+  { path: 'login', component: LoginComponent },
+  {
+    path: 'dashboard',
+    canActivate: [AuthGuard],
+    component: DashboardComponent,
   },
 
   { path: '**', component: PageNotFoundComponent },

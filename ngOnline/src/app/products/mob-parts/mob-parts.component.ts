@@ -1,7 +1,8 @@
 import { ComService } from './../../services/com.service';
 import { Component, OnInit } from '@angular/core';
 import { MobParts } from '../../models/mob-parts';
-import { MOBPARTS } from './mock-data';
+import { isArray } from 'util';
+// import { MOBPARTS } from './mock-data';
 
 @Component({
   selector: 'app-mob-parts',
@@ -15,7 +16,8 @@ export class MobPartsComponent implements OnInit {
 
   ngOnInit(): void {
     console.log('1 Init Block...');
-    this.mobParts = this.comService.getMobParts();
+    // this.mobParts = this.comService.getMobParts();
+    this.comService.getMobParts().subscribe((res) => (this.mobParts = res));
   }
 
   // 8 lifecylehooks
@@ -35,15 +37,29 @@ export class MobPartsComponent implements OnInit {
 
   // arr = ['Pune', 'Hyderabad', 'Mumbai'];
 
-  mobParts: MobParts[] = MOBPARTS;
+  // mobParts: MobParts[] = MOBPARTS;
+
+  mobParts: MobParts[];
 
   calcProd() {
     let tot = 0;
-    for (let mobPart of this.mobParts) {
-      tot = tot + mobPart.inStock;
+    if (Array.isArray(this.mobParts)) {
+      for (let mobPart of this.mobParts) {
+        tot = tot + mobPart.inStock;
+      }
     }
     return tot;
   }
+
+  // calcProd() {
+  //   let tot = 0;
+  //   if (Array.isArray(this.mobParts)) {
+  //     for (let mobPart of this.mobParts) {
+  //       tot = tot + mobPart.inStock;
+  //     }
+  //   }
+  //   return tot;
+  // }
 
   upQuantity(mobPart) {
     if (mobPart.quantity < mobPart.inStock) mobPart.quantity++;
