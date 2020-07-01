@@ -47,6 +47,7 @@ const appRoutes: Routes = [
     component: DashboardComponent,
   },
 
+  { path: 'lazy', loadChildren: '../modules/lazy/lazy.module#LazyModule' },
   { path: '**', component: PageNotFoundComponent },
 ];
 

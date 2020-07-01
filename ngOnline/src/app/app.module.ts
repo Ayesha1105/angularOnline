@@ -31,6 +31,7 @@ import { AllComponentModule } from './modules/all-component.module';
 import { MobNavComponent } from './products/mob-parts/mob-nav/mob-nav.component';
 import { LoginComponent } from './admin/login/login.component';
 import { DashboardComponent } from './admin/dashboard/dashboard.component';
+import { LazyModule } from './modules/lazy/lazy.module';
 
 @NgModule({
   declarations: [
@@ -64,6 +65,7 @@ import { DashboardComponent } from './admin/dashboard/dashboard.component';
     AllMaterialModule,
     AllComponentModule,
     HttpModule,
+    LazyModule,
   ],
   providers: [ComService, AuthGuard],
   bootstrap: [AppComponent],
