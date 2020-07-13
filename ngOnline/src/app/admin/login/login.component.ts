@@ -14,10 +14,25 @@ export class LoginComponent implements OnInit {
 
   check(uname: string, pass: string) {
     var output = this.authService.checkUserNameAndPassword(uname, pass);
-    if (output == true) {
+    // var sup = this.authService.checkUserNameAndPassword(uname, pass);
+    if (output) {
       this.router.navigate(['/dashboard']);
+      alert('in auth service, if');
+    } else if (output) {
+      this.router.navigate(['/payment']);
+      alert('in else if ');
+      console.log('in else if');
     } else {
       this.msg = 'Invalid Username or Password';
     }
   }
+
+  // superLogin(uname: string, pass: string) {
+  //   var output = this.authService.superLogin(uname, pass);
+  //   if (output) {
+  //     this.router.navigate(['/payment']);
+  //   } else {
+  //     this.msg = 'Invalid Username or Password';
+  //   }
+  // }
 }

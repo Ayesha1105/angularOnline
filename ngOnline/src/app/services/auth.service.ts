@@ -10,8 +10,20 @@ export class AuthService {
     if (uname == 'admin' && pass == 'admin') {
       localStorage.setItem('username', 'admin');
       return true;
+    } else if (uname == 'super' && pass == 'super') {
+      localStorage.setItem('username', 'super');
+      return true;
     } else {
       return false;
     }
   }
+
+  // superLogin(uname: string, pass: string) {
+  //   if (uname == 'super' && pass == 'super') {
+  //     localStorage.setItem('username', 'super');
+  //     return true;
+  //   } else {
+  //     return false;
+  //   }
+  // }
 }

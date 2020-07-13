@@ -6,6 +6,16 @@
       <li><a routerLink="mobile">Mobile</a></li>
       <li><a routerLink="book">Book</a></li>
       <li><a routerLink="watch">Watch</a></li>
+      <li>
+        <a [routerLink]="[{ outlets: { outlet1: ['watchDetails'] } }]"
+          >Watch Details</a
+        >
+      </li>
+      <li>
+        <a [routerLink]="[{ outlets: { outlet2: ['watchOffers'] } }]"
+          >Watch Offers</a
+        >
+      </li>
       <li><a routerLink="Allproducts">Products</a></li>
       <li *ngIf="isLogin()"><a routerLink="dashboard">Dashboard</a></li>
       <li *ngIf="!isLogin()"><a routerLink="login">Login</a></li>

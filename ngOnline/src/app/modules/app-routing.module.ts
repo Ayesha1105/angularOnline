@@ -1,3 +1,5 @@
+import { WatchOffersComponent } from './../products/watches/watch-offers/watch-offers.component';
+import { WatchDetailsComponent } from './../products/watches/watch-details/watch-details.component';
 import { AuthGuard } from './../guards/auth.guard';
 import { DashboardComponent } from './../admin/dashboard/dashboard.component';
 import { LoginComponent } from './../admin/login/login.component';
@@ -15,6 +17,7 @@ import { MotoComponent } from '../products/mob-parts/moto/moto.component';
 import { SamsungComponent } from '../products/mob-parts/samsung/samsung.component';
 import { PageNotFoundComponent } from '../layout/page-not-found/page-not-found.component';
 import { HomeComponent } from '../layout/home/home.component';
+import { ProdPaymentComponent } from '../products/prod-payment/prod-payment.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
@@ -23,6 +26,8 @@ const appRoutes: Routes = [
 
   { path: 'book', component: BooksComponent },
   { path: 'watch', component: WatchesComponent },
+  { path: 'watchDetails', component: WatchDetailsComponent, outlet: 'outlet1' },
+  { path: 'watchOffers', component: WatchOffersComponent, outlet: 'outlet2' },
 
   {
     path: 'mobile',
@@ -37,7 +42,13 @@ const appRoutes: Routes = [
         path: 'sam',
         component: SamsungComponent,
       },
+      { path: 'superLogin', component: LoginComponent },
     ],
+  },
+  {
+    path: 'payment',
+    canActivate: [AuthGuard],
+    component: ProdPaymentComponent,
   },
 
   { path: 'login', component: LoginComponent },
