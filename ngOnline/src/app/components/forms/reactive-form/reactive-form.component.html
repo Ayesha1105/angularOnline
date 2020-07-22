@@ -1,0 +1,21 @@
+<h2>Reactive Form works</h2>
+
+<form [formGroup]="formObj">
+  <div class="input-field col s12">
+    <label>Name</label>
+    <input type="text" formControlName="userName" />
+
+    <div style="color: red;" *ngIf="uName.touched && uName.invalid">
+      Error..!!!
+      <div *ngIf="uName.errors.required">Required field...</div>
+      <div *ngIf="uName.errors.noSpace">noSpace allowed...</div>
+      <div *ngIf="uName.errors.minlength">
+        Min {{ uName.errors.minlength.requiredLength }} Length
+      </div>
+    </div>
+  </div>
+  <div class="input-field col s12">
+    <label>Password</label>
+    <input type="password" formControlName="pass" />
+  </div>
+</form>

@@ -3,7 +3,7 @@ import { ComService } from './services/com.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AngularFireModule } from 'angularfire2';
@@ -40,6 +40,13 @@ import { SuperLoginComponent } from './superAdmin/super-login/super-login.compon
 import { HostDirective } from './directives/host.directive';
 import { WatchDetailsComponent } from './products/watches/watch-details/watch-details.component';
 import { WatchOffersComponent } from './products/watches/watch-offers/watch-offers.component';
+import { TempFormsComponent } from './components/forms/temp-forms/temp-forms.component';
+
+import { ProductViewComponent } from './products/product-view/product-view.component';
+import { ReactiveFormComponent } from './components/forms/reactive-form/reactive-form.component';
+import { ChildComponent } from './components/child/child.component';
+import { ParentComponent } from './components/parent/parent.component';
+import { HttpPostsComponent } from './components/http-posts/http-posts.component';
 
 @NgModule({
   declarations: [
@@ -68,6 +75,12 @@ import { WatchOffersComponent } from './products/watches/watch-offers/watch-offe
     HostDirective,
     WatchDetailsComponent,
     WatchOffersComponent,
+    TempFormsComponent,
+    ProductViewComponent,
+    ReactiveFormComponent,
+    ChildComponent,
+    ParentComponent,
+    HttpPostsComponent,
   ],
   imports: [
     BrowserModule,
@@ -80,8 +93,10 @@ import { WatchOffersComponent } from './products/watches/watch-offers/watch-offe
     LazyModule,
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule,
+    ReactiveFormsModule,
   ],
   providers: [ComService, AuthGuard],
-  bootstrap: [AppComponent],
+  // bootstrap: [AppComponent],
+  bootstrap: [HttpPostsComponent],
 })
 export class AppModule {}

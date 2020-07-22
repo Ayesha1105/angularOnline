@@ -1,0 +1,10 @@
+<p>
+  Parent Works..!!Data from child--->><mark>{{ catchData }}</mark>
+</p>
+
+<input #myInput (keyup)="(0)" />
+
+<app-child
+  [dataFromParent]="myInput.value"
+  (dataToParent)="catchData = $event"
+></app-child>
